@@ -74,9 +74,6 @@ void loop()
     if (millis() >= timer) {
         timer = millis() + UPLOAD_INTERVAL;
         mqttClient.publish(MQTT_TOPIC, "hello");   // 发送数据
-        getLocalTime(&now, 0);
-        strftime(s_time, sizeof(s_time), "%Y-%m-%d %H:%M:%S", &now);
-        log(s_time);
     }
 
     mqttClient.loop();
@@ -85,9 +82,10 @@ void loop()
 
 void mqttCallback(char *topic, byte *payload, unsigned int len)
 {
+    char info[len];
+    memcpy(info, payload, len);
     log("Message arrived [" + String(topic) + "]: ");
-    String payload_str = String((char *)payload);
-    log(payload_str);
+    log(info);
 }
 
 void mqttConnect(void)
@@ -122,3 +120,6 @@ void nbConnect(void)
     }
     log("success");
 }
+
+
+
