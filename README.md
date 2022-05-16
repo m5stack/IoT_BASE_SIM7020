@@ -12,7 +12,7 @@ Contains M5Stack **IoT Base NBIoT** related case programs. MQTT Client and RS485
 
 ## Related Link
 
-- [Docment & AT Command](https://docs.m5stack.com/en/base/iot_base_nb_cn)
+- [Document & AT Command](https://docs.m5stack.com/en/base/iot_base_nb_cn)
 
 ## License
 
